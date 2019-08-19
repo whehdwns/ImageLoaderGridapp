@@ -1,4 +1,4 @@
-package com.example.corn.imageloadergridapp.picture;
+package com.example.corn.imageloadergridapp.model;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -11,7 +11,7 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Picture implements Parcelable {
+public class Picture implements Parcelable{
     private String path;
     private int selectCount;
     private int position;
@@ -19,7 +19,8 @@ public class Picture implements Parcelable {
     public Picture() {
     }
 
-    public Picture(String path) { this.path = path;
+    public Picture(String path) {
+        this.path = path;
     }
 
     protected Picture(Parcel in) {
@@ -106,4 +107,3 @@ public class Picture implements Parcelable {
         dest.writeInt(position);
     }
 }
-

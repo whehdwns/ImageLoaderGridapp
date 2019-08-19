@@ -1,7 +1,6 @@
 package com.example.corn.imageloadergridapp.adapter;
 
 import android.content.Context;
-import android.graphics.Picture;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
@@ -14,14 +13,12 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.corn.imageloadergridapp.R;
-import com.example.corn.imageloadergridapp.adapter.
-import java.util.ArrayList;
+import com.example.corn.imageloadergridapp.model.Picture;
 import java.util.List;
 
 public class Galleryadapter extends RecyclerView.Adapter<Galleryadapter.GalleryItemViewHolder> {
 
     public interface ItemListener{
-        //void onItemSelectedChange(int number);
     }
     private ItemListener listener;
 

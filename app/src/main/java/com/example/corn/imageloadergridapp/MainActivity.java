@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Looper;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,7 +16,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.corn.imageloadergridapp.adapter.Galleryadapter;
-import com.example.corn.imageloadergridapp.picture.Picture;
+import com.example.corn.imageloadergridapp.model.Picture;
 import com.example.corn.imageloadergridapp.util.Libraries;
 
 import java.util.ArrayList;
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity  {
     private RecyclerView recyclerViewGallery;
     private ArrayList<Picture> pictures;
     Galleryadapter adapter;
-
+    private ConstraintLayout constraintLayoutSend;
     private ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(
             1, // core pool size
             10, // max pool size
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity  {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        constraintLayoutSend = findViewById(R.id.layoutSend);
         ImageView imageViewSendDetail = findViewById(R.id.button_send);
         imageViewSendDetail.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,7 +53,7 @@ public class MainActivity extends AppCompatActivity  {
         pictures = new ArrayList<>();
         recyclerViewGallery = findViewById(R.id.recyclerViewGallery);
         recyclerViewGallery.setLayoutManager(new GridLayoutManager(this, 3));
-        adapter = new Galleryadapter(this,pictures, new Galleryadapter.ItemListener() {
+        adapter = new Galleryadapter(this, pictures, new Galleryadapter.ItemListener() {
         });
         recyclerViewGallery.setAdapter(adapter);
         // handler = new Handler();
